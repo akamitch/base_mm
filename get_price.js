@@ -2,21 +2,16 @@
 //https://docs.uniswap.org/contracts/v2/reference/smart-contracts/router-02
 //https://v2.info.uniswap.org/tokens
 //https://docs.uniswap.org/contracts/v2/reference/smart-contracts/v2-deployments
-//import config from './config.js';
+import config from './config.js';
 import {ethers} from 'ethers';
 
 //const ADDRESS = '0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D' // uniswap router eth-mainnet
-const ADDRESS = '0x4752ba5dbc23f44d87826276bf6fd6b1c372ad24'
+const ADDRESS = '0x4752ba5dbc23f44d87826276bf6fd6b1c372ad24'    // uniswap router base-mainnet
                     
 const ABI = [
     'function getAmountsOut(uint amountIn, address[] memory path) public view returns (uint[] memory amounts)'
 ]
-
-//alchemy alcht_OWaSdXX2HDYc6jgGLkBOYBJ5CPOAND
-//https://{network}.g.alchemy.com/v2/{apiKey}
-//https://base.g.alchemy.com/v2/alcht_OWaSdXX2HDYc6jgGLkBOYBJ5CPOAND
-//const provider = new ethers.JsonRpcProvider('https://mainnet.infura.io/v3/52430e2606464bddaf6d6f07f628258f')
-const provider = new ethers.JsonRpcProvider('https://base-mainnet.g.alchemy.com/v2/alcht_OWaSdXX2HDYc6jgGLkBOYBJ5CPOAND')
+const provider = new ethers.JsonRpcProvider(config.rpcProvider)
 const amountIn = ethers.parseEther('1')
 //const path = ['0x4200000000000000000000000000000000000006', '0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913'] //base weth-usdc
 const path = ['0x4200000000000000000000000000000000000006', '0xb16274a0882fa01F921c5F9141e389Ee747f803F'] //base weth-cmb
