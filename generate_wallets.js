@@ -1,9 +1,13 @@
 const ethers = require('ethers');
+const walletsToGenerate = 3;
 
-// Generate a new random wallet
-const randomWallet = ethers.Wallet.createRandom();
-
-// Log the private key and mnemonic
-console.log("Private Key:", randomWallet.privateKey);
-console.log("Mnemonic (Seed Phrase):", randomWallet.mnemonic.phrase);
-console.log("Address:", randomWallet.address);
+for (let index = 0; index < walletsToGenerate; index++) {
+    const randomWallet = ethers.Wallet.createRandom();
+    const walletData = {
+        privateKey: randomWallet.privateKey,
+        mnemonic: randomWallet.mnemonic.phrase,
+        address: randomWallet.address
+      };
+      console.log(JSON.stringify(walletData, null, 2));  
+    
+}
