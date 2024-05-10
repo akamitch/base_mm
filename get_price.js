@@ -2,7 +2,9 @@
 //https://docs.uniswap.org/contracts/v2/reference/smart-contracts/router-02
 //https://v2.info.uniswap.org/tokens
 //https://docs.uniswap.org/contracts/v2/reference/smart-contracts/v2-deployments
-const { ethers } = require('ethers')
+//import config from './config.js';
+import {ethers} from 'ethers';
+
 //const ADDRESS = '0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D' // uniswap router eth-mainnet
 const ADDRESS = '0x4752ba5dbc23f44d87826276bf6fd6b1c372ad24'
                     

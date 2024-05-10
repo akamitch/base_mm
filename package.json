@@ -22,5 +22,6 @@
   "homepage": "https://github.com/akamitch/base_mm#readme",
   "dependencies": {
     "ethers": "^6.12.1"
-  }
+  },
+  "type": "module"
 }

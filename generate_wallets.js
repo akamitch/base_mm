@@ -1,4 +1,4 @@
-const ethers = require('ethers');
+import {ethers} from 'ethers';
 const walletsToGenerate = 3;
 
 for (let index = 0; index < walletsToGenerate; index++) {
