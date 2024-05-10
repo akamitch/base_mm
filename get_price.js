@@ -5,26 +5,22 @@
 import config from './config.js';
 import {ethers} from 'ethers';
 
-//const ADDRESS = '0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D' // uniswap router eth-mainnet
-const ADDRESS = '0x4752ba5dbc23f44d87826276bf6fd6b1c372ad24'    // uniswap router base-mainnet
-                    
-const ABI = [
-    'function getAmountsOut(uint amountIn, address[] memory path) public view returns (uint[] memory amounts)'
-]
-const provider = new ethers.JsonRpcProvider(config.rpcProvider)
-const amountIn = ethers.parseEther('1')
-//const path = ['0x4200000000000000000000000000000000000006', '0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913'] //base weth-usdc
-const path = ['0x4200000000000000000000000000000000000006', '0xb16274a0882fa01F921c5F9141e389Ee747f803F'] //base weth-cmb
+export async function getTokenPrice() {
+    const ABI = [
+        'function getAmountsOut(uint amountIn, address[] memory path) public view returns (uint[] memory amounts)'
+    ]
 
-//const path = ['0x70737489DFDf1A29b7584d40500d3561bD4Fe196', '0x4200000000000000000000000000000000000006'] //base weth-bored
-//const path = ['0x4ed4E862860beD51a9570b96d89aF5E1B0Efefed', '0x4200000000000000000000000000000000000006'] //base weth-degen
-//const path = ['0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2', '0xdAC17F958D2ee523a2206206994597C13D831ec7'] //eth
-const router = new ethers.Contract(ADDRESS, ABI, provider)
-const main = async () => {
-    const amounts = await router.getAmountsOut(amountIn, path)
-    //const price = ethers.formatUnits(amounts[1].toString(), 6) //for usdc
-    const price = Number(ethers.formatUnits(amounts[1].toString(), 18))
-    console.log(price)
+    const provider = new ethers.JsonRpcProvider(config.rpcProvider)
+    const amountInWei = ethers.parseEther(String(config.amountIn))
+    const path = [config.WETHAddress, config.tokenAddress] 
+    const router = new ethers.Contract(config.uniV2RouterBase, ABI, provider)
+
+    const amounts = await router.getAmountsOut(amountInWei, path)
+    const tokenAmounts = Number(ethers.formatUnits(amounts[1].toString(), config.TokenDecimals))
+    const price = config.amountIn / tokenAmounts;
+    return price;
 }
-main()
+
+const price = await getTokenPrice();
+console.log('price in weth: ',price.toFixed(20));
 
