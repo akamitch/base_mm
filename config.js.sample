@@ -1,10 +1,12 @@
 const config = {
-    rpcProvider     : 'https://base-mainnet.g.alchemy.com/v2/alcht_*********', // change key!!
+    rpcProvider     : 'https://base-mainnet.g.alchemy.com/v2/alcht_',
     tokenAddress    : '0x4ed4E862860beD51a9570b96d89aF5E1B0Efefed', // our token
     WETHAddress     : '0x4200000000000000000000000000000000000006', // weth at base
     WETHDecimals    : 18,
     TokenDecimals   : 18,
-    amountIn        : 0.01, // amount eth to test price
+    amountIn        : 0.0001, // amount eth to test price
+    uniV2RouterBase : '0x4752ba5dbc23f44d87826276bf6fd6b1c372ad24',    // uniswap router base-mainnet
 }
 
 export default config;
+
