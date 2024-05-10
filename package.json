@@ -1,0 +1,26 @@
+{
+  "name": "base_mm",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/akamitch/base_mm.git"
+  },
+  "keywords": [
+    "base",
+    "ethers"
+  ],
+  "author": "Mitch",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/akamitch/base_mm/issues"
+  },
+  "homepage": "https://github.com/akamitch/base_mm#readme",
+  "dependencies": {
+    "ethers": "^6.12.1"
+  }
+}
