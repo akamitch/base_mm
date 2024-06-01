@@ -21,6 +21,8 @@
   },
   "homepage": "https://github.com/akamitch/base_mm#readme",
   "dependencies": {
+    "@openzeppelin/contracts": "^5.0.2",
+    "@uniswap/v2-periphery": "^1.1.0-beta.0",
     "ethers": "^6.12.1"
   },
   "type": "module"

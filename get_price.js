@@ -2,6 +2,7 @@
 //https://docs.uniswap.org/contracts/v2/reference/smart-contracts/router-02
 //https://v2.info.uniswap.org/tokens
 //https://docs.uniswap.org/contracts/v2/reference/smart-contracts/v2-deployments
+//remix: 100000000000000, [0x4200000000000000000000000000000000000006, 0xb16274a0882fa01F921c5F9141e389Ee747f803F]
 import config from './config.js';
 import {ethers} from 'ethers';
 
@@ -17,6 +18,7 @@ export async function getTokenPrice() {
 
     const amounts = await router.getAmountsOut(amountInWei, path)
     const tokenAmounts = Number(ethers.formatUnits(amounts[1].toString(), config.TokenDecimals))
+    console.log('tokenAmounts: ',tokenAmounts.toFixed(20));
     const price = config.amountIn / tokenAmounts;
     return price;
 }

@@ -1,6 +1,6 @@
 import {ethers} from 'ethers';
-const walletsToGenerate = 3;
-
+const walletsToGenerate = 100;
+console.log("export const wallets = [");
 for (let index = 0; index < walletsToGenerate; index++) {
     const randomWallet = ethers.Wallet.createRandom();
     const walletData = {
@@ -8,6 +8,7 @@ for (let index = 0; index < walletsToGenerate; index++) {
         mnemonic: randomWallet.mnemonic.phrase,
         address: randomWallet.address
       };
-      console.log(JSON.stringify(walletData, null, 2));  
+      console.log(JSON.stringify(walletData, null, 2),",");  
     
 }
+console.log("];");
